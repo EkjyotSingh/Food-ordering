@@ -26,7 +26,7 @@ if(isset($_POST['submit'])){
         }else{
             $smtm=$con->prepare("update  delivery_boy set name='$name',mobile='$mobile',password='$password' where id='$id'");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'delivery_boy');
+            redirect(constant('FETCH_ADMIN_PATH').'delivery_boy');
         }
     }else{
         $name=$_POST['name'];
@@ -39,7 +39,7 @@ if(isset($_POST['submit'])){
         }else{
             $smtm=$con->prepare("insert into delivery_boy(name,mobile,password,added_on,status) values('$name','$mobile','$password','$added_on','1')");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'delivery_boy');
+            redirect(constant('FETCH_ADMIN_PATH').'delivery_boy');
         }
     }
     

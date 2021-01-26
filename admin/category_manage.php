@@ -20,7 +20,7 @@ if(isset($_POST['submit'])){
         }else{
             $smtm=$con->prepare("update  category set name='$name' where id='$id'");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'category');
+            redirect(constant('FETCH_ADMIN_PATH').'category');
             
         }
     }else{
@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
         }else{
             $smtm=$con->prepare("insert into category(name,status,added_on) values('$name','1','$added_on')");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'category');
+            redirect(constant('FETCH_ADMIN_PATH').'category');
         }
     }
     

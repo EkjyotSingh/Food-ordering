@@ -249,7 +249,7 @@ $totalprice= total_price($cartarray);
                                                 <form method="get" action="<?php echo constant('FETCH_PATH').'shop'?>">
                                                     <input type="text" name="search" class="search_input" placeholder="Search Item" value="<?php echo $search_input?>">
                                                     <button type="submit" class="search_button ">
-                                                        <svg class="icon icon-search" onclick="search()">
+                                                        <svg class="icon icon-search">
                                                             <use xlink:href="<?php echo constant('FETCH_PATH')?>assets/img/sprite.svg#icon-search"></use>
                                                         </svg>
                                                     </button>

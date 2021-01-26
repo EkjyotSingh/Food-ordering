@@ -4,9 +4,6 @@ include('../connect.php');
 include('../function.php');
 include('../constant.php');
 $error='';
-if(isset($_SESSION['is_login']) && $_SESSION['is_login']=='yes'){
-    redirect(FETCH_ADMIN_PATH.'category');
-}
 if(isset($_POST['submit'])){
     $email=$_POST['email'];
     $password=$_POST['password'];
@@ -16,11 +13,15 @@ if(isset($_POST['submit'])){
     if($rows){
         $_SESSION['is_login']='yes';
         $_SESSION['name']=$rows['name'];
-        redirect(FETCH_ADMIN_PATH.'category');
+        redirect(constant('FETCH_ADMIN_PATH'));
     }else{
         $error='Please enter right credentials';
     }
     
+}
+
+if(isset($_SESSION['is_login']) && $_SESSION['is_login']=='yes'){
+    redirect(constant('FETCH_ADMIN_PATH'));
 }
 
 ?>

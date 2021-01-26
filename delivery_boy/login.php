@@ -5,8 +5,25 @@ include('../connect.php');
 include('../function.php');
 include('../constant.php');
 $error='';
+if(isset($_POST['submit'])){
+    $mobile=$_POST['mobile'];
+    $password=$_POST['password'];
+    $smtm=$con->prepare("select * from delivery_boy where mobile='$mobile' and password='$password'");
+    $smtm->execute();
+    $rows=$smtm->fetch(PDO::FETCH_ASSOC);
+    if(count($rows)>0){
+        $_SESSION['delivery_boy_login']='yes';
+        $_SESSION['delivery_boy_id']=$rows['id'];
+        $_SESSION['delivery_boy_name']=$rows['name'];
+
+        redirect(constant('FETCH_DELIVERY_PATH'));
+    }else{
+        $error='Please enter right credentials';
+    }
+    
+}
 if(isset($_SESSION['delivery_boy_login']) && $_SESSION['delivery_boy_login']=='yes'){
-redirect(constant('FETCH_DELIVERY_PATH').'orders');
+    redirect(constant('FETCH_DELIVERY_PATH'));
 }
 ?>
 <!DOCTYPE html>
@@ -21,6 +38,8 @@ redirect(constant('FETCH_DELIVERY_PATH').'orders');
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/css/custom.css">
+
+  <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
 </head>
 <body class="sidebar-light">
     <!--<div class="preloader">
@@ -28,28 +47,6 @@ redirect(constant('FETCH_DELIVERY_PATH').'orders');
     </div>-->
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
-    
-
-<?php
-if(isset($_POST['submit'])){
-    $mobile=$_POST['mobile'];
-    $password=$_POST['password'];
-    $smtm=$con->prepare("select * from delivery_boy where mobile='$mobile' and password='$password'");
-    $smtm->execute();
-    $rows=$smtm->fetch(PDO::FETCH_ASSOC);
-    if(isset($rows['id']) && $rows['id'] != ''){
-        $_SESSION['delivery_boy_login']='yes';
-        $_SESSION['delivery_boy_id']=$rows['id'];
-        $_SESSION['delivery_boy_name']=$rows['name'];
-
-        redirect(constant('FETCH_DELIVERY_PATH').'orders');
-    }else{
-        $error='Please enter right credentials';
-    }
-    
-}
-
-?>
 
 <!--<div class="container-scroller">-->
     <div class="container-fluid page-body-wrapper full-page-wrapper">
@@ -107,7 +104,6 @@ if(isset($_POST['submit'])){
 
   <!-- plugins:js -->
   <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/vendor.bundle.base.js"></script>
-  <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
 
 </body>
 </html>

@@ -7,14 +7,11 @@ include('../constant.php');
 if(isset($_SESSION['is_login']) && $_SESSION['is_login']=='yes'){
 
 }else{
-    redirect(FETCH_ADMIN_PATH.'login');
+    redirect(constant('FETCH_ADMIN_PATH').'login');
 }
 
 switch($_SERVER['PHP_SELF']){
     case constant('PHP_SELF_ADMIN_URL').'index.php':
-    $title='Dashboard';
-    break;
-    case constant('PHP_SELF_ADMIN_URL').'full_order.php':
     $title='Orders';
     break;
     case constant('PHP_SELF_ADMIN_URL').'order_detail.php':
@@ -85,6 +82,8 @@ switch($_SERVER['PHP_SELF']){
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo constant('FETCH_ADMIN_PATH')?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo constant('FETCH_ADMIN_PATH')?>assets/css/custom.css">
+  <script src="<?php echo constant('FETCH_ADMIN_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
+
 </head>
 <body class="sidebar-light">
     <!--<div class="preloader">

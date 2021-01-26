@@ -20,7 +20,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
                     $smtm->execute();
                 }
             }
-            redirect(FETCH_ADMIN_PATH.'user');
+            redirect(constant('FETCH_ADMIN_PATH').'user');
     }
 }
 ?>

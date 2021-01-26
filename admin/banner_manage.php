@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
                     $image_error='Please select jpeg,png,jpg type image!';
                 }
             }
-            redirect(FETCH_ADMIN_PATH.'banner');
+            redirect(constant('FETCH_ADMIN_PATH').'banner');
         }else{
             $heading=$_POST['heading'];
             $sub_heading=$_POST['sub_heading'];
@@ -49,7 +49,7 @@ if(isset($_POST['submit'])){
                 move_uploaded_file($_FILES['image']['tmp_name'],constant('BANNER_UPLOAD').$image);
                 $smtm=$con->prepare("insert into banner(heading,sub_heading,link,link_text,image,orderby,status) values('$heading','$sub_heading','$link','$link_text','$image','$orderby','1')");
                 $smtm->execute();
-                redirect(FETCH_ADMIN_PATH.'banner');
+                redirect(constant('FETCH_ADMIN_PATH').'banner');
                 }else{
                     $image_error='Please select jpeg,png,jpg type image!';
                 }

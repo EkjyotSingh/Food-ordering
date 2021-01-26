@@ -19,7 +19,7 @@ if(isset($_GET['delivered']) && $_GET['delivered']>0){
     $delivered_at=date('Y-m-d,h:i:s');
     $smtm=$con->prepare("update full_order set order_status='delivered',delivered_at='$delivered_at',payment_status='paid' where delivery_boy_id='$id' and id='$oid'");
     $smtm->execute();
-    //redirect(constant('FETCH_DELIVERY_PATH').'orders');
+    //redirect(constant('FETCH_DELIVERY_PATH'));
 
 }
 //prx($rows);
@@ -37,6 +37,8 @@ if(isset($_GET['delivered']) && $_GET['delivered']>0){
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/css/style.css">
   <link rel="stylesheet" href="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/css/custom.css">
+
+  <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
 </head>
 <body class="sidebar-light">
     <!--<div class="preloader">
@@ -113,7 +115,6 @@ if(isset($_GET['delivered']) && $_GET['delivered']>0){
     <!-- container-scroller -->
 
   <!--plugins:js-->
-  <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
   <script src="<?php echo constant('FETCH_DELIVERY_PATH')?>assets/js/vendor.bundle.base.js"></script>
   <!-- End custom js for this page-->
 </body>

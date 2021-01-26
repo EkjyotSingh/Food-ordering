@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
         }else{
             $smtm=$con->prepare("update  coupon_code set coupon_code='$coupon_code',coupon_type='$coupon_type',coupon_value='$coupon_value',cart_min_value='$cart_min_value',expired_on='$expired_on' where id='$id'");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'coupon_code');
+            redirect(constant('FETCH_ADMIN_PATH').'coupon_code');
         }
     }else{
         $coupon_code=$_POST['coupon_code'];
@@ -52,7 +52,7 @@ if(isset($_POST['submit'])){
         else{
             $smtm=$con->prepare("insert into coupon_code(coupon_code,coupon_type,coupon_value,cart_min_value,expired_on,status,added_on) values('$coupon_code','$coupon_type','$coupon_value','$cart_min_value','$expired_on','1','$added_on')");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'coupon_code');
+            redirect(constant('FETCH_ADMIN_PATH').'coupon_code');
         }
     }
     

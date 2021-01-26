@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
                         $smtm->execute();
                     }
                 }
-                redirect(FETCH_ADMIN_PATH.'dish');
+                redirect(constant('FETCH_ADMIN_PATH').'dish');
                 }else{
                 $image_error="Please select png,jpeg type images only!";
             }
@@ -94,7 +94,7 @@ if(isset($_POST['submit'])){
                         $smtm->execute();
                     }
             }
-            redirect(FETCH_ADMIN_PATH.'dish');
+            redirect(constant('FETCH_ADMIN_PATH').'dish');
             
         }
     }
@@ -128,7 +128,7 @@ if(isset($_POST['submit'])){
                         $smtm=$con->prepare("insert into dish_detail(dish_id,attribute,price,status,added_on) values('$last_id','$attribute','$price','$status','$added_on')");
                         $smtm->execute();
                 }
-                redirect(FETCH_ADMIN_PATH.'dish');
+                redirect(constant('FETCH_ADMIN_PATH').'dish');
             }else{
                 $image_error="Please select png,jpeg type images only!";
             }

@@ -17,7 +17,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
     $order_status=$smtm->fetchAll(PDO::FETCH_ASSOC);
     //prx($order_detail);
 }else{
-    redirect(constant('FETCH_ADMIN_PATH').'full_order');
+    redirect(constant('FETCH_ADMIN_PATH').'index');
 }
 ?>
 
@@ -25,7 +25,7 @@ if(isset($_GET['id']) && $_GET['id']!=''){
         <div class="content-wrapper">
           <div class="card">
             <div class="card-body">
-                <a href="<?php echo constant('FETCH_ADMIN_PATH').'full_order'?>"
+                <a href="<?php echo constant('FETCH_ADMIN_PATH')?>"
                 class="btn btn-sm btn-back" style="background:#5e2572;color:#fff;">
                 <svg class="icon icon-arrow-left2"><use xlink:href="assets/images/sprite.svg#icon-arrow-left2"></use></svg>   
                 <span style="font-size:0.975rem;">Back</span>

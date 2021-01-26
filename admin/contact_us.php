@@ -13,7 +13,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
         if($type=='delete'){  
             $smtm=$con->prepare("delete from contact where id='$id'");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'contact_us');
+            redirect(constant('FETCH_ADMIN_PATH').'contact_us');
         }
          
     }

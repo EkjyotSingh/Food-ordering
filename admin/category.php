@@ -30,7 +30,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
                 $smtm=$con->prepare("update category set status='$status' where id='$id'");
                 $smtm->execute();
             }
-            redirect(FETCH_ADMIN_PATH.'category');
+            redirect(constant('FETCH_ADMIN_PATH').'category');
 
         }
     }

@@ -101,7 +101,7 @@ if(isset($_GET['type']) && $_GET['type']!=''){
                                 <div class="product-wrapper">
                                     <div class="product-img mb-0">
                                         <a href="<?php echo constant('DISH_FETCH').$dish['image']?>" target="_blank">
-                                            <!--<img src="<?php echo constant('DISH_FETCH').$dish['image']?>" alt="">-->
+                                            <img src="<?php echo constant('DISH_FETCH').$dish['image']?>" alt="">
                                         </a>
                                     </div>
                                     <div class="product-wrapper">

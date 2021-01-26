@@ -12,7 +12,6 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
-  <script src="<?php echo constant('FETCH_ADMIN_PATH')?>assets/js/jquery-3.5.1.min.js"></script>
 
   <script src="<?php echo constant('FETCH_ADMIN_PATH')?>assets/js/vendor.bundle.base.js"></script>
   <script src="<?php echo constant('FETCH_ADMIN_PATH')?>assets/js/jquery.dataTables.js"></script>

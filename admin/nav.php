@@ -40,13 +40,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo constant('FETCH_ADMIN_PATH') ?>index">
-                <svg class="icon icon-user"><use xlink:href="assets/images/sprite.svg#icon-stats-dots"></use></svg>
-                <span class="menu-title">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="<?php echo constant('FETCH_ADMIN_PATH') ?>full_order">
+                <a class="nav-link" href="<?php echo constant('FETCH_ADMIN_PATH')?>">
                 <svg class="icon icon-user"><use xlink:href="assets/images/sprite.svg#icon-clipboard"></use></svg>
                 <span class="menu-title">Orders</span>
                 </a>

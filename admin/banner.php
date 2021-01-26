@@ -17,7 +17,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
             unlink(constant('BANNER_UPLOAD').$row_image['image']);
             $smtm=$con->prepare("delete from banner where id='$id'");
             $smtm->execute();
-            redirect(FETCH_ADMIN_PATH.'banner');
+            redirect(constant('FETCH_ADMIN_PATH').'banner');
         }
          if($type=='deactive' || $type=='active'){        
             $status='1';
@@ -28,7 +28,7 @@ if(isset($_GET['id']) && $_GET['id']>0){
                 $smtm=$con->prepare("update banner set status='$status' where id='$id'");
                 $smtm->execute();
             }
-            redirect(FETCH_ADMIN_PATH.'banner');
+            redirect(constant('FETCH_ADMIN_PATH').'banner');
 
         }
     }
